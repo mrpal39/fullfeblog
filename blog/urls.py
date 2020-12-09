@@ -18,7 +18,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('<int:post_id>/share/',views.post_share, name='post_share'),
     path('feed/', LatestPostsFeed(), name='post_feed'),
-    
+    path('search/', views.post_search, name='post_search'),
     path('blog/', views.post_list, name='post_list'),
     path('<int:year>/<slug:post>/',
         views.post_detail,

@@ -37,6 +37,15 @@
               <li class="nav-item">
                 <a class="nav-link waves-effect" href="http://127.0.0.1:8000/admin">Login admin</a>
               </li>
+              <form class="d-flex">
+                <input class="form-control me-2"  href="{% url "post_search" %} type="post_search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+              <!-- <form method="get">
+                {{form.as_p}}
+            
+                <input type="submit" value="Search">
+            </form> -->
             </ul>
 <!--     
             Right
