@@ -18,7 +18,8 @@ INSTALLED_APPS = [
     'blog',
     'allauth',
     'taggit',
-    
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'allauth.account',
     'allauth.socialaccount',
     'django.contrib.admin',
@@ -27,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
