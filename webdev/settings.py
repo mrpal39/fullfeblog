@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'blog',
     'allauth',
     'taggit',
+    
     'allauth.account',
     'allauth.socialaccount',
     'django.contrib.admin',
