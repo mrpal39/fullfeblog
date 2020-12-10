@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Logged out{% endblock %}
+
+
+{% block content%}
+  
+<main class="form-signin text-center">
+    <h1 class="h3 mb-3 fw-normal">LogOut</h1>
+
+<p>Thanks to vist there
+  <a href="{% url "login"%}"><button class="w-10 btn btn-lg btn-primary" type="submit">login</button> </a>
+</p>
+</main>
+{% endblock%}

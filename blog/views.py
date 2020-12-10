@@ -18,8 +18,8 @@ from core.models import  Comment
 from .forms import EmailPostForm, CommentForm , SearchForm
 from taggit.models import Tag
 from django.db.models import Count
-from django.contrib.postgres.search import SearchVector  #Building a search view veter
-
+from django.contrib.postgres.search import SearchVector,SearchQuery,SearchRank  #Building a search view veter
+from django.contrib.postgres.search import  TrigramSimilarity #Searching with trigram similarity
 
 
 def  post_search(request):
@@ -29,6 +29,18 @@ def  post_search(request):
     if 'query' in request.GET:
         form=SearchForm(request.GET)
         if form.is_valid():
+            search_vector = SearchVector('title','body')#Stemming and ranking results
+            # search_vector = SearchVector('title', weight='A') +SearchVector('body', weight='B')#Weighting queries
+            search_query= SearchQuery(query)
+            results = Post.published.annotate(
+                search=search_vector,#all
+                # similarity=TrigramSimilarity('title', query),#Searching with trigram similarity
+                rank=SearchRank(search_vector,search_query)#all
+                # ).filter(similarity__gt=0.1).order_by('-similarity')#Searching with trigram similarity
+                # ).filter(rank__gte=0.3).order_by('-rank')#Weighting queries
+                ).filter(search=search_query).order_by('-rank') #Stemming and ranking results
+
+
             query=form.cleaned_data['query']
             results=Post.published.annotate(
                 search =SearchVector('title','body'),

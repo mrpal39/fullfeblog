@@ -18,10 +18,12 @@ INSTALLED_APPS = [
     'blog',
     'allauth',
     'taggit',
+
+    # 'account',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'allauth.account',
-    'allauth.socialaccount',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,3 +133,9 @@ VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(VENV_PATH, 'static_root')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(VENV_PATH, 'media')
+
+
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
