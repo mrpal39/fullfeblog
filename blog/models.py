@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from django.urls import reverse
 
-
+from tinymce.models import HTMLField
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
@@ -28,7 +28,7 @@ class Post(models.Model):
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE,
                                related_name='blog_posts')
-    body = models.TextField()
+    body = HTMLField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

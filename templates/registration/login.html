@@ -22,6 +22,10 @@ Your username and password didn't match.
 Please try again.
 </p>
 {% else %}
+<li class="google">
+  <a href="{% url "social:begin" "google-oauth2" %}">Login with
+  Google</a>
+  </li>
 <!-- <h5 >Please, use the following form to log-in:</h5> -->
 {% endif %}
 <div class="login-form">

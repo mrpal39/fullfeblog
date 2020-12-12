@@ -1,0 +1,16 @@
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'core.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+]
+
+
+
+
+
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '30465907715-9iqda8q7gn93ji1un8hautn4gdm3kolf.apps.googleusercontent.com' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'XG7__ihnbxCCwa4EauXb_FKb' # Google Consumer Secret
+
+https://developer.twitter.com/en/apps/
