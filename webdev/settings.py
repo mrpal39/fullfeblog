@@ -1,4 +1,4 @@
-
+from django.urls import reverse_lazy
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,8 +19,11 @@ INSTALLED_APPS = [
     'core',
     'tinymce',
     'blog',
+    'actions',
+    'myshop',
     'allauth',
     'taggit',
+    'account',
     'images.apps.ImagesConfig',
     # 'account',
     'django.contrib.sites',
@@ -29,7 +32,7 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount',
     'social_django',
 
-    
+
     'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -156,5 +159,17 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '30465907715-na1v4eluc3p2kkbsvtremg4aorr187l1.apps.googleusercontent.com' # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'foTRxp19lZBvx2fEbUgzj9-r' # Google Consumer Secret
+# Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '30465907715-na1v4eluc3p2kkbsvtremg4aorr187l1.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'foTRxp19lZBvx2fEbUgzj9-r'  # Google Consumer Secret
+
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail',
+                                        args=[u.username])
+}
+
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0

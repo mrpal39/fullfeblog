@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load static %}{% load blog_tags %} 
+{% extends "base.html" %} {% load static %}{% load blog_tags %}
 {% block title%}Search{% endblock %}
 {% block content%}
 {% if query %}
@@ -7,11 +7,11 @@
     Found {{ total_results }} result{{ total_results|pluralize }}
     {% endwith %}
 
-</h3> 
+</h3>
 
-   {% for post in results %}
-   <h4><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
-  {{post.body|markdown|truncatewords_html:5}}
+{% for post in results %}
+<h4><a href="{{post.get_absolute_url}}">{{post.title}}</a></h4>
+{{post.body|markdown|truncatewords_html:5}}
 {% empty %}
 <p> there are no results for your query.</p>
 {% endfor%}
@@ -20,7 +20,7 @@
 {% else%}
 
 <h1> Search for post</h1>
-<form method="get" >
+<form method="get">
     {{form.as_p}}
 
     <input type="submit" value="Search">

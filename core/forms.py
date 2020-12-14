@@ -1,7 +1,7 @@
 from django import  forms
 from  django.contrib.auth.models import User
 from .models import Profile
-
+from .models import Comment
 class UserEditForm(forms.ModelForm):
 
     class Meta:
@@ -33,8 +33,8 @@ class  LoginForm(forms.Form):
 
 
 
-
-
-
-
     
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name', 'email', 'body')

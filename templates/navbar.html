@@ -1,80 +1,89 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'home' %}">Navbar</a>
+    <a class="navbar-brand" href="{% url 'home' %}">blog</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  </div>
 
-        {% if request.user.is_authenticated %}
 
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link waves-effect" href="{% url 'post_search' %}">Search</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-effect" href="{% url 'about' %}">About</a>
-        </li>
-        {% endif %}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+      {% if request.user.is_authenticated %}
+
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link waves-effect" href="{% url 'post_search' %}">Search</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-effect" href="{% url 'about' %}">About</a>
+      </li>
+      {% endif %}
 
 
 
       <li>
         <a class="nav-link waves-effect" href="/admin">Admin</a>
-        </li>
-   
-          {% if request.user.is_authenticated %}
-          <h1 class="nav-item"> Hello
-           {{ request.user.first_name }},
-          </h1>
-  
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="{% url 'logout' %}">logout</a>
-          </li>
-  
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="{% url "login" %}">log-in</a>
-          </li>
-  
-          <li>
-            <a class="nav-link waves-effect" href="{% url "register" %}">Sign up</a>
-            </li>
-    
-          {% endif %}
-        
+      </li>
+
+      {% if request.user.is_authenticated %}
+      <h1 class="nav-item"> Hello
+        {{ request.user.first_name }},
+      </h1>
+
+      <li class="nav-item">
+        <a class="nav-link waves-effect" href="{% url 'logout' %}">logout</a>
+      </li>
+
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link waves-effect" href="{% url "login" %}">log-in</a>
+      </li>
+
+      <li>
+        <a class="nav-link waves-effect" href="{% url "register" %}">Sign up</a>
+      </li>
+
+      {% endif %}
+
 
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="navbarDropdown1" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="navbarDropdown1" id="navbarDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
           share</a>
-        <ul  id="navbarDropdown1" class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li class="dropdown-item"><a href="https://www.facebook.com/mrpal39" class="nav-link waves-effect" target="_blank">
-          <i class="fab fa-facebook-f"></i></a></li>
-         <li class="dropdown-item"><a href="https://twitter.com/mrpal39" class="nav-link waves-effect" target="_blank"><i class="fab fa-twitter"></i>
-          </a>
-      </li>
-      <li class="dropdown-item"><a href="https://github.com/mrpal39" class="nav-link border border-light rounded waves-effect" target="_blank">
-          <i class="fab fa-github mr-2"></i> GitHub</a>
-      </li>
+        <ul id="navbarDropdown1" class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li class="dropdown-item"><a href="https://www.facebook.com/mrpal39" class="nav-link waves-effect"
+              target="_blank">
+              <i class="fab fa-facebook-f"></i></a></li>
+          <li class="dropdown-item"><a href="https://twitter.com/mrpal39" class="nav-link waves-effect"
+              target="_blank"><i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li class="dropdown-item"><a href="https://github.com/mrpal39"
+              class="nav-link border border-light rounded waves-effect" target="_blank">
+              <i class="fab fa-github mr-2"></i> GitHub</a>
+          </li>
 
 
 
-  
 
-    </div>
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn-1 btn-outline-success" type="submit">Search</button>
-    </form>
+
+  </div>
+  <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn-1 btn-outline-success" type="submit">Search</button>
+  </form>
   </div>
 </nav>

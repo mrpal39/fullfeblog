@@ -1,6 +1,6 @@
 from django import forms
 
-from core.models import Comment
+# from core.models import Comment
 
 #Building a search view
 class  SearchForm(forms.Form):
@@ -16,7 +16,7 @@ class EmailPostForm(forms.Form):
                                widget=forms.Textarea)
 
 
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ('name', 'email', 'body')
+# class CommentForm(forms.ModelForm):
+#     class Meta:
+#         model = Comment
+#         fields = ('name', 'email', 'body')
